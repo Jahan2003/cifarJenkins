@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import logging
-#explicit encoding
+#explicit encodin
 import sys
 import io
 
