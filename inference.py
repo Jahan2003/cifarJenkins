@@ -2,8 +2,6 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-import matplotlib.pyplot as plt
-
 
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
@@ -23,18 +21,9 @@ def predict_image_class(image_path):
     predicted_class = np.argmax(predictions, axis=1)[0]
     return class_names[predicted_class]
 
-def visualize_prediction(image_path):
-    img = image.load_img(image_path, target_size=(32, 32))
-    predicted_class = predict_image_class(image_path)
-    
-    plt.imshow(img)
-    plt.title(f'Predicted class: {predicted_class}')
-    plt.axis('off')
-    plt.show()
 
 image_path = 'cat.jpg'
 
+
 predicted_class = predict_image_class(image_path)
 print(f'Predicted class: {predicted_class}')
-
-visualize_prediction(image_path)
