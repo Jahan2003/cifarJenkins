@@ -3,8 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import logging
-
-# Set UTF-8 encoding explicitly for stdout
+#explicit encoding
 import sys
 import io
 
