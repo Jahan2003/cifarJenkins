@@ -20,7 +20,7 @@ pipeline{
     }
     stage('Run'){
       steps{
-        sh 'python3 inference.py'
+        sh '. pyenv/bin/activate && python3 inference.py'
       }
     }
   }
