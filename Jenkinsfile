@@ -3,6 +3,7 @@ pipeline{
   stages{
     stage('Setup'){
       steps{
+        echo "Setup"
         // sh 'sudo apt-get update'
         // sh 'sudo apt-get install -y python3-venv python3-pip'
       }
