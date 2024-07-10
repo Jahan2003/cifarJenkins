@@ -15,8 +15,7 @@ pipeline{
     }
     stage('Installation'){
       steps{
-        sh 'source pyenv/bin/activate'
-        sh 'pip3 install -r requirements.txt'
+        sh '. pyenv/bin/activate && pip3 install -r requirements.txt'
       }
     }
     stage('Run'){
