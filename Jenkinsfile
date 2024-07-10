@@ -11,11 +11,11 @@ pipeline{
     stage('Virtual Environment Creation'){
       steps{
         sh 'python3 -m venv pyenv'
-        sh '. pyenv/bin/activate'
       }
     }
     stage('Installation'){
       steps{
+        sh '. pyenv/bin/activate'
         sh 'pip3 install -r requirements.txt'
       }
     }
