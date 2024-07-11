@@ -23,6 +23,11 @@ pipeline{
         sh '. pyenv/bin/activate && python3 inference.py'
       }
     }
+    stage('Storage'){
+      steps{
+        archiveArtifacts artifacts: 'log.txt' allowEmptyArchive: true
+      }
+    }
   }
   post{
     always{
