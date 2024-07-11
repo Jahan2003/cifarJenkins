@@ -25,7 +25,7 @@ pipeline{
     }
     stage('Storage'){
       steps{
-        archiveArtifacts artifacts: 'log.txt' allowEmptyArchive: true
+        archiveArtifacts artifacts: 'log.txt', allowEmptyArchive: true
       }
     }
   }
