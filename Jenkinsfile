@@ -28,6 +28,7 @@ pipeline{
     }
     stage('Storage'){
       steps{
+        pwd
         // archiveArtifacts artifacts: 'log', allowEmptyArchive: true
       }
     }
