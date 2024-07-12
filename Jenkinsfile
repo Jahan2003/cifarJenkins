@@ -1,6 +1,17 @@
 pipeline{
   agent any
   stages{
+    stage('Setup'){
+      steps{
+        sh 'sudo apt-get install -y python3-venv python3-pip'
+      }
+    }
+    stage('Installation'){
+      steps{
+        sh 'pwd'
+        sh 'pip3 install -r requirements.txt'
+      }
+    }
     stage('Run'){
       steps{
         sh 'pwd'
