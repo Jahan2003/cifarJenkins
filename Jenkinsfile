@@ -38,7 +38,7 @@ pipeline{
   }
   post{
     always{
-      sh "aws s3 cp ${WORKSPACE}/archive/* s3://jenkinsserverbucket/build/${BUILD_NUMBER}/"
+      sh "aws s3 cp ${WORKSPACE}/log s3://jenkinsserverbucket/build/${BUILD_NUMBER}/"
     }
   }
 }
