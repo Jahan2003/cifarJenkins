@@ -28,8 +28,9 @@ pipeline{
     }
     stage('Storage'){
       steps{
-        sh 'pwd'
-        archiveArtifacts artifacts: "/var/lib/jenkins/jobs/demoJob/branches/main/builds/${BUILD_NUMBER}/log", allowEmptyArchive: true
+        def logPath = "/var/lib/jenkins/jobs/demoJob/branches/main/builds/${BUILD_NUMBER}/log"
+        sh "${logPath} ${WORKSPACE}/log"
+        archiveArtifacts artifacts: 'log', allowEmptyArchive: true
       }
     }
   }
