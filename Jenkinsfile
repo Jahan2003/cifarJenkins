@@ -30,7 +30,7 @@ pipeline{
       steps{
         script{
         def logPath = "/var/lib/jenkins/jobs/demoJob/branches/main/builds/${BUILD_NUMBER}/log"
-        sh "${logPath} ${WORKSPACE}/log"
+        sh "cp ${logPath} ${WORKSPACE}/log"
         archiveArtifacts artifacts: 'log', allowEmptyArchive: true
         }
       }
