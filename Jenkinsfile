@@ -3,32 +3,32 @@ pipeline{
   stages{
     stage('Setup'){
       steps{
-        echo pwd
+        sh 'pwd'
         // sh 'sudo apt-get update'
         // sh 'sudo apt-get install -y python3-venv python3-pip'
       }
     }
     stage('Virtual Environment Creation'){
       steps{
-        echo pwd
+        sh 'pwd'
         // sh 'python3 -m venv pyenv'
       }
     }
     stage('Installation'){
       steps{
-        echo pwd
+        sh 'pwd'
         // sh '. pyenv/bin/activate && pip3 install -r requirements.txt'
       }
     }
     stage('Run'){
       steps{
-        echo pwd
+        sh 'pwd'
         // sh '. pyenv/bin/activate && python3 inference.py'
       }
     }
     stage('Storage'){
       steps{
-        pwd
+        sh 'pwd'
         // archiveArtifacts artifacts: 'log', allowEmptyArchive: true
       }
     }
