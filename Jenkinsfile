@@ -3,21 +3,21 @@ pipeline{
   stages{
     stage('Setup'){
       steps{
-        WithPythonEnv('/usr/bin/python3'){
+        WithPythonEnv('python3'){
         sh 'sudo apt-get install -y python3-venv python3-pip'
         }
       }
     }
     stage('Installation'){
       steps{
-        WithPythonEnv('/usr/bin/python3'){
+        WithPythonEnv('python3'){
         sh 'pip3 install -r requirements.txt'
          }
       }
     }
     stage('Run'){
       steps{
-        WithPythonEnv('/usr/bin/python3'){
+        WithPythonEnv('python3'){
         sh 'python3 inference.py'
         }
       }
