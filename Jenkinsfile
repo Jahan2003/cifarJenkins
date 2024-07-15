@@ -8,6 +8,7 @@ pipeline{
     stage('Setup'){
       steps{
         withPythonEnv('/usr/bin/python3.12'){
+        //setup
         sh 'python --version'
         sh 'sudo apt-get update'
         sh 'sudo apt-get install -y python3-venv python3-pip'
