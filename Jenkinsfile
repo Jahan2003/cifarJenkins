@@ -26,8 +26,10 @@ pipeline{
       steps{
         script{
         def logPath = "/var/lib/jenkins/jobs/demoJob/branches/main/builds/${BUILD_NUMBER}/log"
+        WithPythonEnv('usr/bin/python3'){
         sh "cp ${logPath} ${WORKSPACE}/log"
         archiveArtifacts artifacts: 'log', allowEmptyArchive: true
+        }
         }
       }
     }
