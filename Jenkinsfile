@@ -3,21 +3,21 @@ pipeline{
   stages{
     stage('Setup'){
       steps{
-        WithPythonEnv('/usr/bin/python3.12'){
-        sh 'python3 --version'
+        withPythonEnv('/usr/bin/python3.12'){
+        sh ''
         }
       }
     }
     stage('Installation'){
       steps{
-        WithPythonEnv('/usr/bin/python3.12'){
+        withPythonEnv('/usr/bin/python3.12'){
         sh 'pip3 install -r requirements.txt'
          }
       }
     }
     stage('Run'){
       steps{
-        WithPythonEnv('/usr/bin/python3.12'){
+        withPythonEnv('/usr/bin/python3.12'){
         sh 'python3 inference.py'
         }
       }
@@ -26,7 +26,7 @@ pipeline{
       steps{
         script{
         def logPath = "/var/lib/jenkins/jobs/pipelineJob/builds/${BUILD_NUMBER}/log"
-        WithPythonEnv('/usr/bin/python3.12'){
+        withPythonEnv('/usr/bin/python3.12'){
         sh "cp ${logPath} ${WORKSPACE}/log"
         archiveArtifacts artifacts: 'log', allowEmptyArchive: true
         }
