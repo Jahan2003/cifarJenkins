@@ -1,7 +1,6 @@
 pipeline{
   agent any
   environment{
-    // AWS_DEFAULT_REGION = 'us-east-1'
     AWS_CREDENTIALS_ID = '2d385ee4-417c-4b98-9b11-ee1d56e6680f'
   }
   stages{
