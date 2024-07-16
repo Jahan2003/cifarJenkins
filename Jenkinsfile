@@ -1,7 +1,7 @@
 pipeline{
   agent any
   environment{
-    LOG_PATH = "/var/lib/jenkins/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log"
+    LOG_PATH = "/var/lib/jenkins/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}"
     AWS_CREDENTIALS_ID = '2d385ee4-417c-4b98-9b11-ee1d56e6680f'
   }
   stages{
@@ -26,7 +26,7 @@ pipeline{
     stage('Storage'){
       steps{
         withPythonEnv('/usr/bin/python3.12'){
-        sh "cp ${LOG_PATH} ${WORKSPACE}/log"
+        sh "cp ${LOG_PATH}/log ${WORKSPACE}/log"
         archiveArtifacts artifacts: 'log', allowEmptyArchive: true
         }
       }
