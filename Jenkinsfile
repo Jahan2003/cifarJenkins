@@ -6,6 +6,7 @@ pipeline{
   }
   stages{
     stage('Setup'){
+      //setup
       steps{
         sh 'sudo apt install -y python3.12-venv'
         withPythonEnv('/usr/bin/python3.12'){
