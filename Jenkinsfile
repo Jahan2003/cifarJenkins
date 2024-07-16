@@ -1,6 +1,7 @@
 pipeline{
   agent any
   environment{
+    LOG_PATH = "/var/lib/jenkins/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log"
     AWS_CREDENTIALS_ID = '2d385ee4-417c-4b98-9b11-ee1d56e6680f'
   }
   stages{
@@ -23,12 +24,9 @@ pipeline{
     }
     stage('Storage'){
       steps{
-        script{
-        def logPath = "/var/lib/jenkins/jobs/pipelineJob/builds/${BUILD_NUMBER}/log"
         withPythonEnv('/usr/bin/python3.12'){
         sh "cp ${logPath} ${WORKSPACE}/log"
         archiveArtifacts artifacts: 'log', allowEmptyArchive: true
-        }
         }
       }
     }
@@ -37,7 +35,7 @@ pipeline{
     always{
       withPythonEnv('/usr/bin/python3.12'){
       withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "${AWS_CREDENTIALS_ID}"]]){
-      sh "aws s3 cp ${WORKSPACE}/log s3://jenkinsserverbucket/build/${BUILD_NUMBER}/"
+      sh "aws s3 cp ${LOG_PATH}/archive/log s3://jenkinsserverbucket/build/${BUILD_NUMBER}/"
       }
       }
     }
