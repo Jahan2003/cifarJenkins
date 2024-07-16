@@ -11,7 +11,7 @@ pipeline{
         sh 'python3 --version'
         sh 'sudo apt-get update'
         sh 'sudo apt-get install -y python3-pip'
-        sh 'sudo apt install python3.12-venv'
+        sh 'sudo apt install -y python3.12-venv'
         sh 'pip3 install -r requirements.txt'
         }
       }
