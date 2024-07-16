@@ -25,7 +25,7 @@ pipeline{
     stage('Storage'){
       steps{
         withPythonEnv('/usr/bin/python3.12'){
-        sh "cp ${logPath} ${WORKSPACE}/log"
+        sh "cp ${LOG_PATH} ${WORKSPACE}/log"
         archiveArtifacts artifacts: 'log', allowEmptyArchive: true
         }
       }
