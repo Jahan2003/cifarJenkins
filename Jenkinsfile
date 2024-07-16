@@ -36,7 +36,7 @@ pipeline{
     always{
       withPythonEnv('/usr/bin/python3.12'){
       withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "${AWS_CREDENTIALS_ID}"]]){
-      sh "aws s3 cp ${LOG_PATH}/archive/log s3://jenkinsserverbucket/build/${BUILD_NUMBER}/"
+      sh "aws s3 cp ${LOG_PATH}/archive/log s3://jenkinsservrbucket/build/${BUILD_NUMBER}/ --acl public-read"
       }
       }
     }
